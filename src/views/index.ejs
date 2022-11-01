@@ -72,13 +72,13 @@
             <div class="header__carousel">
                 <div class="carousel__entire__box">
                     <% let urlArr = ["/drink-test/index", "/drink-shop/index", "/drink-ex/index"] %>
-                    <% let textArr = ["술 취향검사", "술 주점", "술 설명"] %>
+                    <% let textArr = ["당신의 전통주 타입을 찾아보세요!", "전국 전통주 정보", "전통주 백과사전"] %>
                     <% let imgArr=["../img/test.png", "../img/shop.png" , "../img/ex.jpg" ] %>
                     <% for(let i = 0; i<3; i++){ %>
                         <a class="carousel__item" href="<%= urlArr[i] %>">
                             <div class="carousel__text">
                                 <div class="carousel__title">
-                                    <h2>당신의 취향에 맞는 전통주를 찾아보세요</h2>
+                                    <h2><%= textArr[i] %></h2>
                                 </div>
                             </div>
                             <div class="carousel__img">
