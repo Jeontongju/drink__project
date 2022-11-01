@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>취향 맞춤 전통주 추천</title>
+    <!-- font-style -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+    <!-- font-awsome -->
+    <script src="https://kit.fontawesome.com/388ade87ec.js" crossorigin="anonymous"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/container.css">
+    <link rel="stylesheet" href="../css/indexPage/nav.css">
+    <link rel="stylesheet" href="../css/section/testSection.css">
+    <!-- nav까지는 통일...!! ==> main내부 section부분은 폴더마다 다르게 할 거.. -->
+
+    <script defer src="../javascript/quizCarousel.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <div class="left__slide__menu__box">
+                <div class="user__open__button open__button">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+            <div class="nav__logo">
+                <a href="/index" class="logo__title">
+                    <img src="../img/logo.png">
+                </a>
+            </div>
+            <div class="nav__search">
+                <form action="/drink" method="get">
+                    <div class="search__box">
+                        <input type="search" placeholder="술 이름" name="title" id="title">
+                        <input type="submit" value="ok">
+                    </div>
+                </form>
+            </div>
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="list">
+                        <a href="/index">home</a>
+                    </li>
+                    <li class="list">
+                        <a href="/new/index">signup</a>
+                    </li>
+                    <li class="list">
+                        <a class="login" href="">
+                            login
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="/my-pages/index">mypage</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right__slide__menu__box">
+                <div class="menu__open__button open__button">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+        <main class="section testSection">
+            <div class="test__start">
+                
+                <div class="form">
+                    <% for(let i = 0; i < contents.length; i++){ %>
+                        <div class="question">
+                            <div class="question__header">
+                                <h2 class="q">
+                                    <p>Q<%=  i + 1 %></p>
+                                    <p><%= contents[i].contents %></p>
+                                </h2>
+                            </div>
+                            <div class="question__main">
+                                <select name="question" id="" class="select">
+                                    <% for(let j = 0; j < 4; j++){ %>
+                                        <option value="<%= j + 1 %>"><%= j + 1 %></option>
+                                    <% } %>
+                                </select>
+                            </div>
+                            <div class="question__footer">
+                                <% let button = ["button", "button", "button", "button"]; %>
+                                <% let value = ["다음", "다음", "다음", "제출"]; %>
+                                <% let className = ["next", "next", "next", "result"]; %>
+                                    <input type="<%= button[i] %>" value="<%= value[i] %>" class='button <%= className[i] %>'>
+                            </div>
+                        </div>
+                    <% } %>
+                    
+                    </div>
+            </div>
+            <div class="test__result">
+                <div class="result__text"></div>
+                <div class="result__drink"></div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+

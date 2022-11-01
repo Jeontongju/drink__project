@@ -1,0 +1,174 @@
+li{
+    text-decoration: none;
+
+}
+.section{
+    /* border : 3px solid black; */
+    display : grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 10% 90%;
+    grid-template-areas: 
+    'aside header'
+    'aside article';
+}
+.section > *{
+    /* border : 2px solid black; */
+}
+/* result section 헤더 */
+.section__header{
+    grid-area : header;
+    /* border : 2px solid black; */
+    display : flex;
+}
+.section__header > *{
+    /* border : 1px solid black; */
+}
+.section__header > .title{
+    flex-grow : 2;
+    display : flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size : 1.2rem;
+    font-weight : 800;
+}
+/* result page정렬 부분 css */
+.section__header > .sortBox{
+    flex-grow : 1;
+}
+.sortBox > .sortByFood{
+    width : 100%;
+    height : fit-content;
+    padding : 5px 7px;
+    /* border : 2px solid black; */
+    cursor : pointer;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+.sortByFood > .food{
+    /* border : 1px solid black; */
+    flex-grow : 1;
+    height : 100%;
+    text-align: center;
+    padding : 5px 0;
+}
+.food > span{
+    display : block;
+    width : 100%;
+    height : 100%;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius : 20px;
+    padding : -5px;
+    padding : 10px 0;
+
+}
+.food > span:hover{
+    transition : all 0.5s;
+    /* border : 5px solid black; */
+}
+/* result section 사이드바 */
+.section__aside{
+    grid-area : aside;
+}
+
+/* result section 메인! */
+.section__article{
+    position : relative;
+    overflow-y: scroll;
+
+    display : grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows : minmax(90px, 100px);
+    grid-gap : 1vh;
+    padding : 1vh;
+
+}
+.section__article > .drink__result__box{
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius : 10px;
+
+    display : grid;
+    grid-template-columns: 100px 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: 
+    "img title title"
+    "img price ml";
+
+    cursor : pointer;
+}
+.drink__result__box > *{
+    /* border : 1px solid black; */
+}
+.result{
+    display : flex;
+    flex-direction: column;
+}
+.result > .pro{
+    color : gray;
+}
+.result > .value{
+    font-weight: 800;
+}
+.result > .pro, .value{
+    display : block;
+    flex-grow : 1;
+    /* border : 1px solid black; */
+    /* display : flex;
+    justify-content: center;
+    align-items: center; */
+    /* 글자 가운데 정렬..! */
+    /* 한줄로 나오게.. */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 20px;
+    word-wrap: brek-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    white-space: wrap;
+    text-align: center;
+}
+.result__img{
+    grid-area: img;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    border-radius : 10px;
+    position : relative;
+    overflow: hidden;
+}
+.img {
+    position : absolute;
+    left : 0;
+    top : 0;
+    width : 100%;
+    height : 100%;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+        border-radius: 10px;
+        /* width: 100%; */
+        /* height: 100%; */
+}
+.result__title{
+    grid-area: title;
+}
+
+.result__price{
+    grid-area: price;
+}
+
+.result__ml{
+    grid-area : ml;
+}
+
+
+@media screen and (max-width : 767px) {
+    .section__article>.drink__result__box {
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        border-radius: 10px;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas:
+            "title title"
+            "price ml"
+    }
+}

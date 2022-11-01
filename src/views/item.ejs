@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="hello">hello</p>
+
+    <script>
+        const hello = document.querySelector('.hello');
+        hello.addEventListener('click', () => {
+            alert(hello.innerHTML);
+        })
+
+        async function goFetch(area){
+            try{
+                let goFetch = await fetch(`/items?area=${hello}`);
+            }catch(err){
+                return console.log(err);
+            }
+        }
+    </script>
+</body>
+</html>

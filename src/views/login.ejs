@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- font-style -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+    <!-- font-awsome -->
+    <script src="https://kit.fontawesome.com/388ade87ec.js" crossorigin="anonymous"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/container.css">
+    <link rel="stylesheet" href="../css/indexPage/nav.css">
+    <link rel="stylesheet" href="../css/section/loginSection.css">
+
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <div class="left__slide__menu__box">
+                <div class="user__open__button open__button">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+            <div class="nav__logo">
+                <a href="/index" class="logo__title">Stupping</a>
+            </div>
+            <div class="nav__search">
+                <form action="/drink" method="get">
+                    <div class="search__box">
+                        <input type="search" placeholder="술 이름" name="title" id="title">
+                        <input type="submit" value="ok">
+                    </div>
+                </form>
+            </div>
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="list">
+                        <a href="/index">home</a>
+                    </li>
+                    <li class="list">
+                        <a href="/new/index">signup</a>
+                    </li>
+                    <li class="list">
+                        <a class="login" href="">
+                            <%= isLogined %>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="/my-pages/index">mypage</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right__slide__menu__box">
+                <div class="menu__open__button open__button">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+        <main class="section">
+            <div class="login__image"></div>
+            <div class="login__box">
+                <form id="login__form" action="/api/auth/local-process" method="post">
+                    <div class="login__header">
+                        <h2 class="title">login</h2>
+                    </div>
+                    <div class="login__main">
+                        <div class="login__main__container">
+                            <div class="input__box id__box">
+                                <p class="email">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <label for="email">Email</label>
+                                </p>
+                                <p>
+                                    <input type="email" name="email" id="email">
+                                </p>
+                            </div>
+                            <div class="input__box pw__box">
+                                <p class="password">
+                                    <i class="fa-solid fa-lock"></i>
+                                    <label for="password">password</label>
+                                </p>
+                                <p>
+                                    <input type="password" name="password" id="password">
+                                </p>
+                                <p class="input__footer">
+                                    <input type="submit" value="LOGIN">
+                                </p>
+                                <p class="input__option">
+                                    <a href="">findID</a>
+                                    <a href="">find pw</a>
+                                    <a href="">hello</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="login__footer">
+                        <p>
+                            Copyright 2022. 전통주 Inc. all rights reserved.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

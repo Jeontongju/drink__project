@@ -1,0 +1,27 @@
+html,body{
+    width : 100vw;
+    height : 100vh;
+    position : relative;
+    background-color: rgb(246, 242, 242);
+}
+.container{
+    font-family: 'Ubuntu', sans-serif;
+    position : relative;
+    left : 50%;
+    top : 50%;
+    transform : translate(-50%, -50%);
+    width : 85vw;
+    height : 90vh;
+    /* border : 2px solid black; */
+    
+    display : grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 90%;
+    /* calc했더니 특정 범위 이상 scroll이 안 됐음.. 마지막 요소가 끝까지 안 나옴. */
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius : 25px;
+    overflow: hidden;
+}
+.container > *{
+    /* border : 1px solid black; */
+}

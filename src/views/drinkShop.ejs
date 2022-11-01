@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전국 전통주점</title>
+    <!-- font-style -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+    <!-- font-awsome -->
+    <script src="https://kit.fontawesome.com/388ade87ec.js" crossorigin="anonymous"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/shop.css">
+    <link rel="stylesheet" href="../css/container.css">
+    <link rel="stylesheet" href="../css/indexPage/nav.css">
+    <!-- nav까지는 통일...!! ==> main내부 section부분은 폴더마다 다르게 할 거.. -->
+
+    <script defer src="../javascript/areaFetch.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="nav">
+            <div class="left__slide__menu__box">
+                <div class="user__open__button open__button">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+            <div class="nav__logo">
+                <a href="/index" class="logo__title">
+                    <img src="../img/logo.png">
+                </a>
+            </div>
+            <div class="nav__search">
+                <form action="/drink" method="get">
+                    <div class="search__box">
+                        <input type="search" placeholder="술 이름" name="title" id="title">
+                        <input type="submit" value="ok">
+                    </div>
+                </form>
+            </div>
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="list">
+                        <a href="/index">home</a>
+                    </li>
+                    <li class="list">
+                        <a href="/new/index">signup</a>
+                    </li>
+                    <li class="list">
+                        <a class="login" href="">
+                            login
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="/my-pages/index">mypage</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right__slide__menu__box">
+                <div class="menu__open__button open__button">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+        <main class="section">
+            <div class="area__container">
+                <header class="area__header">
+                    <div class="title">
+                        <h2>전국 전통주점 찾기</h2>
+                    </div>
+                </header>
+                <main class="area__main">
+                    <% let areaArr = ["서울", "경기", "인천", "충남", "경남", "부산", "전북", "제주"] %>
+                    <% for(let i = 0; i<8; i++){ %>
+                        <div class="area__box" data-id="<%= areaArr[i] %>"><%= areaArr[i] %></div>
+                    <% } %>
+                </main>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

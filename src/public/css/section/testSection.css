@@ -1,0 +1,142 @@
+.testSection{
+    background-color: rgb(184, 184, 245);
+    display : flex;
+}
+.testSection > .test__start{
+    min-width : 30%;
+    max-width: 30%;
+    /* border : 2px solid black; */
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius : 10px;
+    overflow-x: hidden;
+}
+.test__start > .form{
+    width : 400%;
+    height : 100%;
+    /* border : 1px solid black; */
+    display : flex;
+}
+.form > .question{
+    flex-basis : 100%;
+    flex-grow : 1;
+    /* border : 2px solid black; */
+
+    display : flex;
+    flex-direction: column;
+}
+.question > *{
+    /* border : 1px solid black; */
+}
+/* 질문 header!! */
+.question > .question__header{
+    flex-grow : 2;
+    min-width : 100%;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+.question__header > .q{
+    font-size : 1.2rem;
+    font-weight : 800;
+    text-align: center;
+}
+.q > p{
+    padding : 5px 0;
+}
+
+/* 질문 main */
+.question > .question__main{
+    flex-grow : 5;
+    min-width: 100%;
+    position : relative;
+}
+
+/* ==== << select box 꾸미기 >> ====  */
+select, option{
+    /* border : 2px solid black; */
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius : 10px;
+    height : 50px;
+    width : 100%;
+    text-align: center;
+    font-size : 1.3rem;
+    background-color: #9bcdfb;
+    color: white;
+    cursor: pointer;
+    border : none;
+    outline : none;
+}
+select:hover, option:hover{
+    transition: all 0.5s;
+    background-color: #9bcdfb;
+    color : rgb(115, 143, 220)
+}
+
+.question > .question__footer{
+    flex-grow : 1;
+    min-width: 100%;
+
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+.question__footer > .button{
+    border : none;
+    outline : none;
+    font-size : 1.1rem;
+    border: 1x solid #9bcdfb;
+        /*---테두리 정의---*/
+        background-Color: #ffe6f2;
+        /*--백그라운드 정의---*/
+        font: 12px 굴림;
+        /*--폰트 정의---*/
+        font-weight: bold;
+        /*--폰트 굵기---*/
+        color: #00ff99;
+        /*--폰트 색깔---*/
+        width: 200px;
+        height: 30px;
+        /*--버튼 크기---*/
+}
+.question__footer > .button:hover{
+    transition : all 0.5s;
+    background-color: #00ff99;
+    color : black;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.testSection > .test__result{
+    min-width: 70%;
+    max-width : 70%;
+
+    display : flex;
+    flex-direction: column;
+}
+.test__result > .result__text{
+    flex-grow : 3;
+    /* border : 2px solid black; */
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+.result__text > .title{
+    width : fit-content;
+    height : fit-content;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    font-size : 2.3rem;
+    line-height: 1;
+    font-weight : 800;
+    font-style : italic;
+    padding : 8px 12px;
+    border-radius : 5px;
+}
+.result__text a{
+    text-decoration: none;
+    color : yellow;
+}
+.title span{
+    /* color : blue; */
+}
+.test__result > .result__drink{
+    flex-grow : 7;
+}

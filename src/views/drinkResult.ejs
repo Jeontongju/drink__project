@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조물주 위에 막걸리</title>
+    <!-- font-style -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+    <!-- font-awsome -->
+    <script src="https://kit.fontawesome.com/388ade87ec.js" crossorigin="anonymous"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/container.css">
+    <link rel="stylesheet" href="../css/indexPage/nav.css">
+    <link rel="stylesheet" href="../css/section/resultSection.css">
+    <!-- nav까지는 통일...!! ==> main내부 section부분은 폴더마다 다르게 할 거.. -->
+
+    <script defer src="../javascript/isLogined.js"></script>
+    <script defer src="../javascript/detailFetch.js"></script>
+    <script defer src="../javascript/foodSort.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <div class="left__slide__menu__box">
+                <div class="user__open__button open__button">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+            <div class="nav__logo">
+                <a href="/index" class="logo__title">
+                    <img src="../img/logo.png">
+                </a>
+            </div>
+            <div class="nav__search">
+                <form action="/drink" method="get">
+                    <div class="search__box">
+                        <input type="search" placeholder="술 이름" name="title" id="title">
+                        <input type="submit" value="ok">
+                    </div>
+                </form>
+            </div>
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="list">
+                        <a href="/index">home</a>
+                    </li>
+                    <li class="list">
+                        <a href="/new/index">signup</a>
+                    </li>
+                    <li class="list">
+                        <a class="login" href="">
+                            <%= isLogined %>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="/my-pages/index">mypage</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right__slide__menu__box">
+                <div class="menu__open__button open__button">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+        <main class="section">
+            <!-- <% for(let i = 0; i<drink.length; i++){ %>
+                title >> <%= drink[i].title %>
+        
+            <% } %> -->
+            <header class="section__header">
+                <div class="title">
+                    <h2>Result</h2>
+                </div>
+                <div class="sortBox">
+                    <ul class="sort sortByFood">
+                        <!-- fetch => query로 보내기! -->
+                        <li class="food fish">
+                            <span>🐟</span>
+                        </li>
+                        <li class="food meat">
+                            <!-- <i class="fa-regular fa-meat"></i> -->
+                            <span>🍖</span>
+                        </li>
+                        <li class="food jungoal">
+                            <span>🍲</span>
+                        </li>
+                        <li class="food cheese">
+                            <span>🧀</span>
+                        </li>
+                        <li class="food salad">
+                            <span>🥗</span>
+                        </li>
+                    </ul>
+
+                </div>
+            </header>
+            <aside class="section__aside">
+
+            </aside>
+            <article class="section__article">
+                <% for(let i = 0; i < drink.length; i++){ %>
+                    <div class="drink__result__box" data-id="<%= drink[i]._id %>">
+                        <div class="result__img result">
+                            <img src="../img/<%= drink[i].id %>.BMP" alt="">
+                        </div>
+                        <% for(let j = 0; j <property.length; j++){ %>
+                            <div class="result__property result">
+                                <span class="pro"><%= property[j] %></span>
+                                <span class="value"><%= drink[i][property[j]]%></span>
+                            </div>
+                        <% } %>
+                    </div>
+                <% } %>
+            </article>
+        </main>
+    </div>
+</body>
+</html>

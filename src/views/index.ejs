@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조물주 위에 막걸리</title>
+    <!-- font-style -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+    <!-- font-awsome -->
+    <script src="https://kit.fontawesome.com/388ade87ec.js" crossorigin="anonymous"></script>
+
+   <!-- css file -->
+   <link rel="stylesheet" href="../css/reset.css">
+   <link rel="stylesheet" href="../css/indexPage/container.css">
+   <link rel="stylesheet" href="../css/indexPage/header.css">
+   <link rel="stylesheet" href="../css/indexPage/nav.css">
+   <link rel="stylesheet" href="../css/indexPage/main.css">
+
+   <!-- javascript -->
+   <script defer src="../javascript/carousel.js"></script>
+   <script defer src="../javascript/isLogined.js"></script>
+   <script defer src="../javascript/detailFetch.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <div class="left__slide__menu__box">
+                <div class="user__open__button open__button">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+            <div class="nav__logo">
+                <a href="/index" class="logo__title">
+                    <img src = "../img/logo.png">
+                </a>
+            </div>
+            <div class="nav__search">
+                <form action="/drink" method="get">
+                    <div class="search__box">
+                        <input type="search" placeholder="술 이름" name="title" id="title">
+                        <input type="submit" value="ok">
+                    </div>
+                </form>
+            </div>
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="list">
+                        <a href="/index">home</a>
+                    </li>
+                    <li class="list">
+                        <a href="/new/index">signup</a>
+                    </li>
+                    <li class="list">
+                        <a class="login" href="">
+                            <%= isLogined %>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="/my-pages/index">mypage</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right__slide__menu__box">
+                <div class="menu__open__button open__button">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+        <header class="header">
+            <div class="header__carousel">
+                <div class="carousel__entire__box">
+                    <% let urlArr = ["/drink-test/index", "/drink-shop/index", "/drink-ex/index"] %>
+                    <% let textArr = ["술 취향검사", "술 주점", "술 설명"] %>
+                    <% let imgArr=["../img/test.png", "../img/shop.png" , "../img/ex.jpg" ] %>
+                    <% for(let i = 0; i<3; i++){ %>
+                        <a class="carousel__item" href="<%= urlArr[i] %>">
+                            <div class="carousel__text">
+                                <div class="carousel__title">
+                                    <h2>당신의 취향에 맞는 전통주를 찾아보세요</h2>
+                                </div>
+                            </div>
+                            <div class="carousel__img">
+                                <div class="img__box">
+                                    <img src="<%= imgArr[i] %>" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    <% } %>
+                </div>
+            </div>
+            <div class="carousel__shift__box">
+                <div class="shift"></div>
+                <div class="shift"></div>
+                <div class="shift"></div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="main__header"></div>
+            <div class="main__section">
+                <% for(let i=0; i<12; i++){ %>
+                    <div class="item item<%= i %>" data-id="<%= drink[i]._id %>">
+                        <div class="item__img">
+                            <img src="../img/<%= drink[i].id %>.BMP" alt="">
+                        </div>
+                        <div class="item__contents">
+                            <% for(let j = 0; j < keyArr.length; j++){ %>
+                                <div class="contents">
+                                    <span class="content contents__property"><%= keyArr[j] %></span>
+                                    <span class="content contents__value"><%= drink[i][keyArr[j]] %></span>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

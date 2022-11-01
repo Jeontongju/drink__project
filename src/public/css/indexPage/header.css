@@ -1,0 +1,102 @@
+.header{
+    position : relative;
+}
+.header > .header__carousel{
+    width : 100%;
+    height : 100%;
+    background-color: rgb(252, 247, 247);
+    overflow-x: hidden;
+}
+.header__carousel > .carousel__entire__box{
+    width : 300%;
+    height : 100%;
+    display : flex;
+}
+.carousel__item{
+    display : block;
+    flex-grow : 1;
+    height : 100%;
+    /* border-right : 3px solid black; */
+    display : flex;
+    text-decoration: none;
+    color : black;
+}
+/* carousel 내부 text, img!! */
+.carousel__item > .carousel__text{
+    width : 30%;
+    min-width: 30%;
+    /* border : 1px solid black; */
+    position : relative;
+    /* 내부 text를 배치하기 위해서 */
+}
+.carousel__text > .carousel__title{
+    position : absolute;
+    left : 50%;
+    top : 50%;
+    width : 70%;
+    height : 50%;
+    /* border : 1px solid black; */
+    transform: translate(-50%, -50%);
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    font-size : 1.3rem;
+    font-weight : 800;
+    background-color: whitesmoke;
+    text-align: center;
+}
+.carousel__item > .carousel__img{
+    flex-grow : 2;
+    width : 70%;
+    /* border : 2px solid black; */
+    background-color: rgb(166, 210, 249);
+}
+.carousel__item > .carousel__img{
+    width : 100%;
+    height : 100%;
+}
+.carousel__img > .img__box{
+    width : 100%;
+    height : 100%;
+    background-color: #00ffff;
+    object-fit: cover;
+    overflow: hidden;
+    position : relative;
+}
+.img__box > img{
+    position : absolute;
+    left : 0;
+    top : 0;
+    width : 100%;
+    height : 100%;
+}
+/* shift에 관한거!*/
+.carousel__shift__box{
+    position : absolute;
+    width : 75px;
+    height : 25px;
+    left : 50%;
+    bottom : 10px;
+    transform : translateX(-50%);
+    /* border : 2px solid black; */
+
+    display : flex;
+}
+.carousel__shift__box > .shift{
+    flex-grow : 1;
+    height : 100%;
+    /* border : 1px solid black; */
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius : 5px;
+    margin : 0 3px;
+    cursor: pointer;
+    background-color: aliceblue;
+}
+
+
+@media screen and (max-width : 767px) {
+    .carousel__item>.carousel__text {
+        display : none;
+        /* 내부 text를 배치하기 위해서 */
+    }
+}
