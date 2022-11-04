@@ -19,6 +19,7 @@
     <!-- nav까지는 통일...!! ==> main내부 section부분은 폴더마다 다르게 할 거.. -->
 
     <script defer src="../javascript/areaFetch.js"></script>
+    <script defer src="../javascript/menuSort.js"></script>
 </head>
 
 <body>
@@ -72,15 +73,44 @@
                     <div class="title">
                         <h2><%= area1 %> 전통주점 찾기</h2>
                     </div>
+                    <div class="sortBox">
+                        <ul class="sort sortByFood">
+                            <!-- fetch => query로 보내기! -->
+                            <li class="menu fish">
+                                <span>🐟</span>
+                            </li>
+                            <li class="menu meat">
+                                <!-- <i class="fa-regular fa-meat"></i> -->
+                                <span>🍖</span>
+                            </li>
+                            <li class="menu jungoal">
+                                <span>🍲</span>
+                            </li>
+                            <li class="menu cheese">
+                                <span>🧀</span>
+                            </li>
+                            <li class="menu salad">
+                                <span>🥗</span>
+                            </li>
+                        </ul>
+                    </div>
                 </header>
                 <main class="area__main">
-                    <% for(let i = 0; i< area.length; i++){ %>
-                        <div class="area__box">
-                            <li><%= area[i].name%></li>
-                            <li><%= area[i].address%></li>
-                            <li><%= area[i].menu%></li>
-                        </div>
-                    <% } %>
+                    <% for(let i=0; i< area.length; i++){ %>
+                        <a href="<%= area[i].link%>" target='_blank'>
+                            <div class="area__box">
+                                <li>
+                                    <%= area[i].name%>
+                                </li>
+                                <li>
+                                    <%= area[i].address%>
+                                </li>
+                                <li>
+                                    <%= area[i].phone%>
+                                </li>
+                            </div>
+                        </a>
+                        <% } %>
                 </main>
             </div>
         </main>

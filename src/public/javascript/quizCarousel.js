@@ -44,7 +44,7 @@ async function goFetch(...arr){
     let text3 = document.createTextNode(`${go}type 보러가기!!`);
 
     text2.appendChild(text3);
-    text2.setAttribute("href", "/index");
+    text2.setAttribute("href", `/type/${go}`);
     div.appendChild(text); 
     div.appendChild(nextLine);
     div.appendChild(text2); 

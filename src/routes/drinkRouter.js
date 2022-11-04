@@ -44,31 +44,10 @@ module.exports = () => {
                 });
             }else{
                 const food = new RegExp(req.query.food);
+
                 console.log(`fetch전달 값 >> ${food}`);
                 let findByFood = await Drink.find({food : food}).select().lean();
                 console.log(findByFood);
-                // let foodArr = [];
-                // for(let key in findByFood){
-                //     foodArr.push(findByFood[key].food);
-                // }
-                // console.log(foodArr);
-
-
-                // console.log(newFood);
-                // console.log(filter);
-                // let findDrinkByFood = await Drink.find().select('food -_id').limit(3);
-                // let filterFood = [...findDrinkByFood];
-                // console.log(filterFood);
-                // let valueArr = [];
-                // filterFood.forEach((value) => {
-                //     if(value.food.includes(food)){
-                //         valueArr.push(value.food);
-                //     }else{
-                //         return;
-                //     }
-                // })
-                // console.log(valueArr);
-                // 즉 food에 이 값이 들어가있는 걸 출력해주면 돼!! 
 
                 let property = await Drink.findOne().select(
                   "title type flavour_type food -_id"
@@ -86,9 +65,7 @@ module.exports = () => {
             return console.log(err);
         }
     })
-
     
-
     // 2. detail Page GET /drink/:id
     router.get('/:id', async(req,res) => {
         try{
@@ -103,5 +80,6 @@ module.exports = () => {
             return console.log(err);
         }
     })
+
     return router; 
 }

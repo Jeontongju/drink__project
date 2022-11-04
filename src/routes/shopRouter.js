@@ -28,6 +28,6 @@ module.exports = () => {
         }catch(err){
             return console.log(err);
         }
-    })
+    });
     return router;
 }

@@ -132,8 +132,10 @@ module.exports = () => {
             console.log(findDrink[0])
             // 일단 flavor type을 띄우기!! => ajax로
             let flavour = findDrink[0].flavour_type;
+            const list = await Drink.find({ flavour_type: { $regex: flavour } });
             // return res.json(flavour);
             console.log(flavour);
+            console.log(list);
             return res.render('test.ejs', {
                 contents : questions,
                 type : flavour,
@@ -142,6 +144,32 @@ module.exports = () => {
             return console.log(err);
         }
         
+    })
+
+    router.get('/type/:type', async(req,res) => {
+        try {
+            const {type} = req.params;
+            let findAll = await Drink.find(); // 전체 다 출력!
+            // console.log(findAll); // [{}, {}, {}, {}]
+            let resultArr = findAll.filter((ele) => {
+              return ele.flavour_type.includes(type) === true;
+              // 전체 문자중에 filter로 값 거르기!!!!! ===> javascript의 중요성
+              // 값을 서버에서 전부 다 함수를 사용해서 조립해주는.. 역할
+            });
+            let property = await Drink.findOne().select(
+              "title type flavour_type food"
+            );
+            let pro = Object.keys(property.toJSON());
+            // console.log(resultArr);
+            // 이제 찾아줬으면 page!
+            let resultRender = await res.status(200).render("drinkResult.ejs", {
+              isLogined: isLogined(req.user),
+              property: pro,
+              drink: resultArr,
+            });
+        } catch (err) {
+            return console.log(err);
+        }
     })
     return router;
 }
